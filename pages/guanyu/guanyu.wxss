@@ -1,0 +1,83 @@
+/* pages/about-us/about-us.wxss */
+.container {
+  background-color: #f7f8fa;
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+/* 内容区块样式 */
+.section {
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin: 0 30rpx 30rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
+}
+
+.section-header {
+  margin-bottom: 30rpx;
+  border-left: 8rpx solid #3a6fff;
+  padding-left: 20rpx;
+}
+
+.section-title {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.section-content {
+  line-height: 1.6;
+}
+
+.content-text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 团队成员样式 */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.team-member {
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+
+.member-avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  margin-bottom: 15rpx;
+  border: 4rpx solid #f0f0f0;
+}
+
+.member-name {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  display: block;
+}
+
+.member-position {
+  font-size: 26rpx;
+  color: #999;
+  display: block;
+}
+
+
+
+/* 页脚样式 */
+.footer {
+  text-align: center;
+  margin-top: 50rpx;
+}
+
+.copyright {
+  font-size: 26rpx;
+  color: #999;
+}

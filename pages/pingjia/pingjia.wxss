@@ -1,0 +1,15 @@
+/* pages/pending-review/pending-review.wxss */
+.container {
+  padding: 20rpx;
+  text-align: center;
+}
+
+.empty image {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 100rpx auto 30rpx;
+}
+.empty text {
+  color: #999;
+  margin-left: -150px;
+}

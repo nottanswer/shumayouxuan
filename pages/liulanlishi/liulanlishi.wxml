@@ -1,0 +1,24 @@
+<!-- pages/history/history.wxml -->
+<view class="container">
+  <view class="header">
+    
+    <button style="width: 180rpx; margin-left: 550rpx;"class="clear-btn" bindtap="clearHistory">清空记录</button>
+  </view>
+
+  <scroll-view class="history-list" scroll-y>
+    <block wx:for="{{historyList}}" wx:key="pid">
+      <view class="history-item" bindtap="viewAgain" data-pd="{{item}}">
+        <image src="{{item.pic}}" class="item-image"/>
+        <view class="item-info">
+          <text class="item-title">{{item.pname}}</text>
+          <text class="item-desc">¥{{item.price}}</text>
+          <text class="item-desc">¥{{item.note}}</text>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{historyList.length === 0}}" class="empty">
+      <image src="/images/empty.png" class="empty-img"/>
+      <text class="empty-text" >暂无浏览记录</text>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,179 @@
+
+/* pages/houtailogin/houtailogin.wxss */
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40rpx;
+  /* background: linear-gradient(135deg, #1a2980, #26d0ce); */
+}
+
+.login-container {
+  width: 100%;
+  background: white;
+  border-radius: 40rpx;
+  padding: 60rpx;
+  box-shadow: 0 30rpx 100rpx rgba(0, 0, 0, 0.3);
+}
+
+.login-header {
+  margin-bottom: 80rpx;
+}
+
+.login-title {
+  font-size: 50rpx;
+  color: #1a2980;
+  margin-bottom: 20rpx;
+  font-weight: 700;
+  display: block;
+}
+
+.login-subtitle {
+  color: #666;
+  font-size: 28rpx;
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 60rpx;
+  position: relative;
+}
+
+.label {
+  display: block;
+  margin-bottom: 20rpx;
+  font-weight: 500;
+  color: #444;
+  font-size: 28rpx;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.icon-user, .icon-lock {
+  position: absolute;
+  left: 40rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  font-size: 36rpx;
+}
+
+.icon-user::before {
+  content: '\e7ae';  /* 使用字体图标的Unicode */
+  font-family: "Font Awesome 5 Free";
+}
+
+.icon-lock::before {
+  content: '\e7c9';  /* 使用字体图标的Unicode */
+  font-family: "Font Awesome 5 Free";
+}
+
+.form-control {
+  width: 100%;
+  padding: 32rpx 40rpx 32rpx 110rpx;
+  border: 4rpx solid #e0e0e0;
+  border-radius: 24rpx;
+  font-size: 28rpx;
+  transition: all 0.3s ease;
+  height: 110rpx;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  border-color: #1a2980;
+  box-shadow: 0 0 0 8rpx rgba(26, 41, 128, 0.1);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 40rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  padding: 20rpx;
+}
+
+.icon-eye::before {
+  content: '\e7a5';  /* 使用字体图标的Unicode */
+  font-family: "Font Awesome 5 Free";
+}
+
+.icon-eye-slash::before {
+  content: '\e7a6';  /* 使用字体图标的Unicode */
+  font-family: "Font Awesome 5 Free";
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60rpx;
+  font-size: 26rpx;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+}
+
+.remember-me checkbox {
+  margin-right: 20rpx;
+  transform: scale(0.8);
+}
+
+.forgot-password {
+  color: #1a2980;
+  font-weight: 500;
+}
+
+.login-btn {
+  width: 100%;
+  height: 110rpx;
+  background: #4a6bdf;
+  border: none;
+  border-radius: 24rpx;
+  color: white;
+  font-size: 32rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10rpx 40rpx rgba(26, 41, 128, 0.3);
+  transition: all 0.3s ease;
+}
+
+.login-btn:active {
+  transform: translateY(-4rpx);
+  box-shadow: 0 14rpx 50rpx rgba(26, 41, 128, 0.4);
+}
+
+.login-btn[disabled] {
+  background: #cccccc;
+  transform: none;
+  box-shadow: none;
+}
+
+.loading-spinner {
+  width: 44rpx;
+  height: 44rpx;
+  border: 6rpx solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+  margin-right: 24rpx;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+  font-weight: 500;
+  display: block;
+}

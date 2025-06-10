@@ -1,0 +1,35 @@
+
+<view class="container">
+  <!-- 客服电话卡片 -->
+  <view class="service-card">
+    <image class="service-icon" src="/images/service-phone.png"></image>
+    <view class="service-info">
+      <text class="service-title">客服电话</text>
+      <text class="service-phone">400-123-4567</text>
+      <text class="service-time">服务时间：9:00-18:00（周一至周日）</text>
+    </view>
+  </view>
+
+  <!-- 注意事项 -->
+  <view class="notice-section">
+    <text class="section-title">注意事项</text>
+    <view class="notice-list">
+      <view class="notice-item">
+        <text class="notice-icon">•</text>
+        <text class="notice-text">请在工作时间内拨打客服电话</text>
+      </view>
+      <view class="notice-item">
+        <text class="notice-icon">•</text>
+        <text class="notice-text">高峰期可能需要排队等候</text>
+      </view>
+      <view class="notice-item">
+        <text class="notice-icon">•</text>
+        <text class="notice-text">请准备好订单号等必要信息</text>
+      </view>
+      <view class="notice-item">
+        <text class="notice-icon">•</text>
+        <text class="notice-text">非服务时间可通过在线客服留言</text>
+      </view>
+    </view>
+  </view>
+</view>

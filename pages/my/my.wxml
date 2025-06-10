@@ -1,0 +1,42 @@
+<!-- index.wxml -->
+<navigation-bar title="用户登录" back="{{false}}" color="white" background="#4a6bdf"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page">
+    <!-- 顶部标题 -->
+    <view class="header">
+      <text class="title">用户登录</text>
+      <text class="subtitle">加入我们，开启全新体验</text>
+    </view>
+    
+    <!-- 表单区域 -->
+    <view class="form-container">
+      <!-- 用户名输入 -->
+      <view class="input-group">
+        <text class="input-label">账号</text>
+        <input model:value="{{uname}}" name="uname" id="uname" class="input" placeholder="请输入您的账号"></input>
+      </view>
+      
+      <!-- 密码输入 -->
+      <view class="input-group">
+        <text class="input-label">密码</text>
+        <input model:value="{{passwd}}" name="passwd" id="passwd" class="input" placeholder="请输入您的密码" password></input>
+      </view>
+      
+      <!-- 性别选择 -->
+      <view class="input-group">
+        <text class="input-label">性别</text>
+        <picker model:value="{{gender}}" name="gender" id="gender" class="input" mode="selector" range="{{['男','女']}}" bindchange="bindGenderChange">
+          <view class="picker">{{sex ||'请选择您的性别'}}</view>
+        </picker>
+      </view>
+      <view class="input-group">
+      <text class="input-label">地址</text>
+      <input model:value="{{address}}" name="address" id="address" class="input" placeholder="请输入您的地址"></input>
+      </view>
+      <button class="register-btn" bindtap="doRegister">立即登录</button>
+      </view>
+      </view>
+      <!--<view class="footer-links">
+      <button class="confirm-btn" bindtap="backToLogin">返回</button>
+      </view>-->
+</scroll-view>

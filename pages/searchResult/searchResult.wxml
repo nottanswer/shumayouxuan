@@ -1,0 +1,23 @@
+<!--pages/searchResult/searchResult.wxml-->
+<view class="page-container">
+  <view class="search-header">
+    <text>搜索 "{{keyword}}" 的结果</text>
+  </view>
+
+  <view class="product-list-container" wx:if="{{results.length > 0}}">
+    <view class="product-item-card" wx:for="{{results}}" wx:key="pid" data-product="{{item}}" bindtap="goToDetail">
+      <image src="{{item.pic}}" class="product-image" mode="aspectFill"/>
+      <view class="product-info">
+        <text class="product-name">{{item.pname}}</text>
+        <text class="product-price">¥{{item.price}}</text>
+        <text class="product-note">{{item.note}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:else>
+    <image src="/images/empty_icon.png" class="empty-icon" mode="widthFix"></image>
+    <text>没有找到与 "{{keyword}}" 相关的商品</text>
+    <button class="back-home-btn" bindtap="goBackHome">返回首页</button>
+  </view>
+</view>

@@ -1,0 +1,39 @@
+
+<!-- pages/houtailogin/houtailogin.wxml -->
+<view class="container">
+  <view class="login-container">
+    <view class="login-header">
+      <text class="login-title">管理后台登录</text>
+      <text class="login-subtitle">请输入您的管理员凭证以访问系统</text>
+    </view>
+    
+    <view id="loginForm">
+      <view class="form-group">
+        <text class="label">管理员账号</text>
+        <view class="input-with-icon">
+          <!-- <text class="icon-user"></text> -->
+          <input type="text" id="username" class="form-control" placeholder="请输入管理员账号" bindinput="onUsernameInput" value="{{username}}"/>
+        </view>
+        <text class="error-message" wx:if="{{usernameError}}">{{usernameError}}</text>
+      </view>
+      
+      <view class="form-group">
+        <text class="label">密码</text>
+        <view class="input-with-icon">
+          <!-- <text class="icon-lock"></text> -->
+          <input type="password" id="password" class="form-control" password="true"
+          placeholder="请输入密码" bindinput="onPasswordInput" value="{{password}}"/>
+          <!-- <view class="password-toggle" bindtap="togglePasswordVisibility">
+            <text class="{{showPassword ? 'icon-eye-slash' : 'icon-eye'}}"></text>
+          </view> -->
+        </view>
+        <text class="error-message" wx:if="{{passwordError}}">{{passwordError}}</text>
+      </view>
+      
+      <button class="login-btn" bindtap="login" disabled="{{isLoading}}">
+        <view class="loading-spinner" wx:if="{{isLoading}}"></view>
+        <text>{{isLoading ? '验证中...' : '登录后台'}}</text>
+      </button>
+    </view>
+  </view>
+</view>

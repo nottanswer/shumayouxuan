@@ -1,0 +1,15 @@
+/* pages/pending-receipt/pending-receipt.wxss */
+.container {
+  padding: 20rpx;
+  text-align: center;
+}
+.empty image {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 100rpx auto 30rpx;
+}
+.empty text {
+  color: #999;
+  text-align: center;
+  margin-left: -150px;
+}

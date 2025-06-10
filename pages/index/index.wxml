@@ -1,0 +1,107 @@
+<!--index.wxml-->
+<view class="page">
+
+
+<!-- 搜索框区域 -->
+<view class="search-bar-container">
+  <view class="search-bar">
+    <icon type="search" size="16" color="#999" class="search-icon"/>
+    <input
+      class="search-input"
+      placeholder="搜索你感兴趣的商品"
+      confirm-type="search"
+      bindinput="onSearchInput"
+      value="{{searchValue}}"
+    />
+    <icon type="clear" size="16" color="#ccc" class="clear-icon" wx:if="{{searchValue.length > 0}}" bindtap="onClearSearch"/>
+    <button class="search-button" bindtap="onSearchButtonClick" wx:if="{{searchValue.length > 0}}">搜索</button>
+  </view>
+</view>
+
+
+   <view>
+    <swiper autoplay="true" interval="3000">
+        <swiper-item wx:for="{{bannerlist}}" wx:key="bnkey" wx:for-item="bannering">
+            <image src="{{bannering}}" class="banner"></image>
+        </swiper-item>
+     </swiper>
+     
+    <!---- <view class="nav-container">
+        <view class="nav-item" wx:for="{{cataloglist}}" wx:key="cakey" wx:for-item="ca" data-ca="{{ca}}"bind:tap="doCatalogClick">
+           <text>{{ca}}</text>
+        </view>
+     </view>-->
+    
+     <view class="nav-row">
+       <block wx:for="{{cataloglist}}"wx:key="cakey" >
+          <view class="nav-item" bind:tap="doCatalogClick" data-text="{{item.text}}">
+            <image src="{{item.icon}}" class="nav-icon" mode="aspectFit"/>
+               <text class="nav-text">{{item.text}}</text>
+          </view>
+        </block>
+     </view>
+
+     <view class="nav-row">
+       <block wx:for="{{cataloglist2}}" wx:key="cakey">
+          <view class="nav-item" bind:tap="doCatalogClick" data-text="{{item.text}}">
+           <image src="{{item.icon}}" class="nav-icon" mode="aspectFit"/>
+            <text class="nav-text">{{item.text}}</text>
+            </view>
+        </block>
+     </view>
+
+     <!-- <scroll-view class="content-list" scroll-y>
+      <block wx:for="{{findlist}}" wx:key="producted">
+        <view class="content-item">
+      <image src="{{ (item.pic && item.pic.startsWith('http')) ? item.pic : (app.globalData.imageBaseUrl + '/images/' + item.pic) }}" class="item-cover" mode="aspectFill"/>
+      <view class="item-info">
+        <text class="item-title">{{item.pname}}</text>
+        <text class="item-desc">¥{{item.price}}</text>
+        <text class="multi-line-text">{{item.note}}</text>
+        <button style="width: 180rpx; font-size: 10px;background-color: #ffffff;margin-top: 20px; border:1px solid;border-color: #000000e3;border-radius: 20px;margin-left: 240rpx;"
+        data-product="{{item}}"
+        bind:tap="doshowDetail"
+        >查看详细</button>
+      </view> 
+      
+    </view>
+  </block>
+</scroll-view> -->
+
+<scroll-view class="content-list" scroll-y>
+      <block wx:for="{{findlist}}" wx:key="pid"> <!-- 建议将 wx:key 改为 item.pid (假设 pid 是唯一的) -->
+        <view class="content-item">
+          <!-- 修改后的图片标签 -->
+          <image
+            src="{{item.pic}}"
+            class="item-cover"
+            mode="aspectFill"
+            lazy-load="true"
+            binderror="onProductImageError" data-index="{{index}}" /> <!-- 可选：添加错误处理 -->
+          <view class="item-info">
+            <text class="item-title">{{item.pname}}</text>
+            <text class="item-desc">¥{{item.price}}</text>
+            <text class="multi-line-text">{{item.note}}</text>
+            <button style="width: 180rpx; font-size: 10px;background-color: #ffffff;margin-top: 20px; border:1px solid;border-color: #000000e3;border-radius: 20px;margin-left: 240rpx;"
+            data-product="{{item}}"
+            bind:tap="doshowDetail"
+            >查看详细</button>
+          </view>
+        </view>
+      </block>
+      <!-- 加载中提示 -->
+      <view wx:if="{{isLoading}}" class="loading-tip">正在加载商品...</view>
+      <!-- 错误提示 -->
+      <view wx:if="{{!isLoading && errorMsg}}" class="error-tip">{{errorMsg}}</view>
+      <!-- 列表为空提示 -->
+      <view wx:if="{{!isLoading && !errorMsg && findlist.length === 0}}" class="empty-tip">暂无相关商品</view>
+    </scroll-view>
+     
+
+
+
+
+   </view>
+</view>
+
+

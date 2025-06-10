@@ -1,0 +1,35 @@
+<!-- pages/about-us/about-us.wxml -->
+<view class="container">
+  <!-- 团队介绍 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">我们的团队</text>
+    </view>
+    <view class="team-grid">
+      <view class="team-member" >
+        <text class="member-name">团队名称：光宗耀组</text>
+        <text class="member-name">组长：高毓琬</text>
+        <text class="member-name">组员：陈美竹、陈欣、付涵、洪一丹、李诗悦</text>
+      </view>
+    </view>
+  </view>
+  <!-- 公司简介 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">团队介绍</text>
+    </view>
+    <view class="section-content">
+      <text class="content-text">
+        光宗耀组在组长高毓琬的高效管理以及成员们的共同努力下，凭借扎实的专业知识、创新思维和严谨态度，成功完成数码优选小程序开发。未来，团队将继续携手共进，在计算机科学领域不断探索创新，争取取得更多成果。
+      </text>
+    </view>
+  </view>
+
+  
+
+  
+  <!-- 底部版权 -->
+  <view class="footer">
+    <text class="copyright">©2025 数码优选 版权所有</text>
+  </view>
+</view>

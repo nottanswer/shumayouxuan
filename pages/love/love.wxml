@@ -1,0 +1,16 @@
+<!--pages/shouc/shouc.wxml-->
+<scroll-view class="content-list" scroll-y>
+        <block wx:for="{{lovelist}}" wx:key="producted">
+          <view class="content-item">
+        <image src="{{item.pic}}" class="item-cover" mode="aspectFill"/>
+        <view class="item-info">
+          <text class="item-title">{{item.pname}}</text>
+          <text class="item-desc">{{item.price}}</text>
+          <text class="item-desc">{{item.note}}</text>
+          <button style="width: 180rpx; font-size: 10px;background-color: #ffffff;margin-top: 15px; border:1px solid;border-color: #000000;border-radius: 15px;margin-left: 240rpx;" data-pid="{{item.pid}}"bind:tap="lovedelclick"
+          >移出商品</button>
+        </view> 
+        
+      </view>
+    </block>
+  </scroll-view>

@@ -1,0 +1,122 @@
+
+/* 页面容器样式 */
+.container {
+  padding: 30rpx;
+  background-color: #f7f8fa;
+  min-height: 100vh;
+}
+
+/* 客服电话卡片样式 */
+.service-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.service-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+
+.service-info {
+  flex: 1;
+}
+
+.service-title {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.service-phone {
+  font-size: 36rpx;
+  color: #3a6fff;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.service-time {
+  font-size: 24rpx;
+  color: #999;
+  display: block;
+}
+
+.call-btn {
+  background-color: #3a6fff;
+  color: white;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  padding: 0 40rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-left: 20rpx;
+}
+
+/* 注意事项区域样式 */
+.notice-section {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.notice-list {
+  margin-top: 20rpx;
+}
+
+.notice-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.notice-icon {
+  color: #3a6fff;
+  font-size: 36rpx;
+  margin-right: 10rpx;
+  line-height: 36rpx;
+}
+
+.notice-text {
+  font-size: 28rpx;
+  color: #666;
+  flex: 1;
+  line-height: 40rpx;
+}
+
+/* 其他联系方式样式 */
+.contact-section {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+}
+
+.contact-btn {
+  background-color: #f7f8fa;
+  color: #333;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.contact-btn:last-child {
+  margin-bottom: 0;
+}

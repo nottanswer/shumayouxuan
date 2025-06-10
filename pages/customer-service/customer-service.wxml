@@ -1,0 +1,45 @@
+
+<view class="container">
+  <!-- 客服电话主卡片 -->
+  <view class="main-card">
+    <image class="card-icon" src="/images/service-phone.png"></image>
+    <view class="card-content">
+      <text class="card-title">客服热线</text>
+      <text class="phone-number">400-123-4567</text>
+      <text class="service-hours">服务时间：9:00-18:00（周一至周日）</text>
+    </view>
+    <button class="primary-btn" bindtap="makePhoneCall">一键拨打</button>
+  </view>
+
+  <!-- 在线客服入口 -->
+  <view class="service-card" bindtap="contactOnline">
+    <image class="card-icon" src="/images/online-service.png"></image>
+    <view class="card-content">
+      <text class="card-title">在线客服</text>
+      <text class="card-desc">实时在线解答您的问题</text>
+    </view>
+    <image class="arrow-icon" src="/images/arrow-right.png"></image>
+  </view>
+
+  <!-- 常见问题 -->
+  <view class="section">
+    <text class="section-title">常见问题</text>
+    <view class="faq-list">
+      <view class="faq-item" wx:for="{{faqs}}" wx:key="id" bindtap="viewFaqDetail" data-id="{{item.id}}">
+        <text class="faq-question">{{item.question}}</text>
+        <image class="arrow-icon" src="/images/arrow-right.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 注意事项 -->
+  <view class="section">
+    <text class="section-title">注意事项</text>
+    <view class="notice-list">
+      <view class="notice-item" wx:for="{{notices}}" wx:key="id">
+        <text class="notice-index">{{index + 1}}.</text>
+        <text class="notice-text">{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+</view>

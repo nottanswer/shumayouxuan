@@ -1,0 +1,7 @@
+<!-- pages/pending-review/pending-review.wxml -->
+<view class="container">
+  <view class="empty">
+    <image src="/images/图标/待评价2.png" mode="aspectFit"></image>
+    <text>暂无待评价订单</text>
+  </view>
+</view>

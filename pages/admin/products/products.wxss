@@ -1,0 +1,277 @@
+/* pages/admin/products/products.wxss */
+
+
+page {
+  padding-top: 0 !important;
+  height: 100%; /* 确保页面占满，为 vh 单位提供基准 */
+  background-color: #f4f4f4; /* 页面整体背景色 */
+  font-size: 28rpx; /* 基础字体大小 */
+  overflow: hidden; /* 防止页面本身出现滚动条，滚动由内部scroll-view控制 */
+}
+
+.container {
+  padding-top: 0 !important;
+  display: flex;
+  flex-direction: column; /* 子元素垂直排列 */
+  height: 100vh; /* 使容器撑满整个视口高度 */
+  background-color: #f4f4f4; /* 与 page 背景色一致*/
+  box-sizing: border-box;
+}
+
+/* --- 固定在顶部的头部区域 --- */
+.admin-header-fixed {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0; /* 此时这个0是相对于默认导航栏下方的 */
+  left: 0;
+  right: 0;
+  background-color: #f4f4f4;
+  z-index: 100;
+  padding: 10rpx 20rpx 0; 
+  /* ... */
+}
+
+.header { /* 页面大标题 "产品后台管理" */
+  text-align: center;
+  padding-bottom: 15rpx;
+  border-bottom: 1rpx solid #e0e0e0; /* 标题下方的分隔线 */
+  margin-bottom: 15rpx; /* 与下方添加按钮的间距 */
+}
+.title {
+  font-size: 36rpx; /* 调整标题字号 */
+  font-weight: bold;
+  color: #333;
+}
+
+.add-button-container {
+  text-align: center; /* "添加新产品" 按钮居中 */
+  margin-bottom: 15rpx; /* 与下方搜索框的间距 */
+}
+.add-product-btn {
+  min-width: 240rpx;
+  padding: 12rpx 40rpx; /* 调整按钮内边距 */
+  font-size: 28rpx;
+  border-radius: 8rpx;
+  display: inline-block;
+  line-height: 1.5;
+  text-align: center;
+}
+button.add-product-btn[type="primary"] {
+    background-color: #007aff; /* 微信小程序 primary 按钮颜色 */
+    color: #FFFFFF;
+}
+.add-product-btn::after {
+    border: none; /* 移除按钮默认边框 */
+}
+
+.search-bar-admin {
+  display: flex;
+  align-items: center;
+  padding: 15rpx 20rpx;
+  background-color: #ffffff; /* 搜索框白色背景 */
+  border-radius: 30rpx;     /* 更圆润的搜索框 */
+  margin-bottom: 20rpx;    /* 固定头部区域最后一个元素，它与下方滚动内容的间距 */
+  box-shadow: 0 1rpx 3rpx rgba(0,0,0,0.05); /* 轻微阴影 */
+}
+.search-icon-admin {
+  margin-right: 15rpx;
+}
+.search-input-admin {
+  flex: 1;
+  font-size: 28rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.clear-icon-admin {
+  margin-left: 15rpx;
+  padding: 10rpx;
+}
+
+/* --- 可滚动的内容区域 --- */
+.admin-content-scrollable {
+  flex: 1; /* 关键：占据所有剩余的垂直空间 */
+  overflow-y: auto; /* 由 scroll-view 的 scroll-y 属性控制 */
+  box-sizing: border-box;
+}
+
+.loading-tip,
+.error-tip,
+.empty-tip {
+  text-align: center;
+  color: #888;
+  padding: 60rpx 20rpx; /* 在滚动区域内的上下间距 */
+  font-size: 30rpx;
+}
+.error-tip {
+  color: #e64340;
+}
+
+.product-list {
+  padding: 20rpx; /* 给列表本身一些内边距，使其不紧贴滚动区域边缘 */
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 25rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  background-color: #ffffff;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.product-info {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+  margin-right: 20rpx;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 25rpx;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+  flex-shrink: 0;
+  background-color: #f9f9f9;
+}
+.placeholder-image {
+  opacity: 0.5;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+.product-details text {
+  display: block;
+  margin-bottom: 8rpx;
+  font-size: 26rpx;
+  color: #555;
+  line-height: 1.4;
+  word-break: break-word;
+}
+.product-details text:last-child {
+  margin-bottom: 0;
+}
+.product-name {
+  font-weight: bold;
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+.description-preview {
+  color: #777;
+  font-size: 24rpx;
+  margin-top: 5rpx;
+  white-space: normal; /* 允许描述文本换行 */
+}
+
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.product-actions button {
+  margin-bottom: 15rpx;
+  width: 130rpx;
+  font-size: 24rpx;
+}
+.product-actions button:last-child {
+  margin-bottom: 0;
+}
+
+/* --- 表单模态框样式 (保持不变，它是 fixed 定位) --- */
+.form-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.form-scroll-view {
+  width: 92%;
+  max-height: 90vh;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 5rpx 20rpx rgba(0,0,0,0.1);
+}
+.form-container {
+  padding: 40rpx 30rpx;
+}
+.form-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40rpx;
+  display: block;
+  color: #333;
+}
+.form-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30rpx;
+}
+.form-label {
+  width: 160rpx;
+  margin-right: 15rpx;
+  font-size: 28rpx;
+  color: #333;
+  padding-top: 12rpx;
+  flex-shrink: 0;
+  text-align: right;
+}
+.form-input {
+  flex: 1;
+  max-width: 450rpx;
+  border: 1rpx solid #dcdcdc;
+  padding: 12rpx 20rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  background-color: #fdfdfd;
+  height: 76rpx;
+  line-height: 52rpx; /* 76 - (12+12) */
+}
+.form-textarea {
+  flex: 1;
+  border: 1rpx solid #dcdcdc;
+  padding: 15rpx 20rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  background-color: #fdfdfd;
+  line-height: 1.5;
+  min-height: 150rpx; /* 文本域最小高度 */
+  max-height: 400rpx; /* 文本域最大高度，超出内部滚动 */
+}
+.form-input:focus,
+.form-textarea:focus {
+  border-color: #007aff;
+  box-shadow: 0 0 0 2rpx rgba(0, 122, 255, 0.2);
+}
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50rpx;
+}
+.form-actions button {
+  margin-left: 25rpx;
+  width: 180rpx;
+  font-size: 28rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+}

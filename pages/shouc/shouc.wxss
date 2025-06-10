@@ -1,0 +1,286 @@
+/* index.wxss */
+.container {
+  padding: 20rpx;
+  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+}
+
+.header {
+  font-size: 38rpx;
+  text-align: center;
+  padding: 40rpx 0;
+  color: #2d3436;
+  font-weight: 500;
+  letter-spacing: 2rpx;
+}
+
+.picker-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+  margin: 40rpx 0;
+}
+
+.picker-box {
+  flex: 1;
+  margin: 0 20rpx;
+  border: 2rpx solid #ced4da;
+  border-radius: 16rpx;
+  background: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
+}
+.picker-box:active {
+  transform: scale(0.98);
+  background: #f8f9fa;
+}
+.picker {
+  padding: 24rpx;
+  color: #495057;
+  font-size: 30rpx;
+  position: relative;
+}
+
+.vs-text {
+  font-size: 40rpx;
+  color: #e64340;
+  font-weight: bold;
+}
+
+.comparison-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  gap: 20rpx;
+  /* 新增以下属性确保子元素撑满容器 */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.product-card {
+  /* 修改为50%宽度 */
+  width: 50%;
+  box-sizing: border-box;
+  /* 调整间距 */
+  padding: 30rpx;
+  /* 移除最小宽度限制 */
+  min-width: auto;
+  /* 保持高度一致 */
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image {
+  /* 保持图片比例 */
+  height: 400rpx;
+  flex-shrink: 0;
+}
+.specs-container {
+  margin-top: auto;
+  padding-top: 30rpx;
+}
+
+.product-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15rpx;
+}
+
+.catalog {
+  color: #666;
+  font-size: 28rpx;
+  text-align: center;
+  margin: 10rpx 0;
+}
+
+.price {
+  color: #e64340;
+  font-size: 36rpx;
+  text-align: center;
+  margin-bottom: 25rpx;
+}
+
+.specs-container {
+  border-top: 1px solid #eee;
+  padding: 30rpx 0 10rpx;
+  margin-top: 30rpx;
+}
+
+.spec-item {
+  margin: 30rpx 0;
+  padding: 30rpx;
+  background: #f8fafc;
+  border-radius: 16rpx;
+  border: 2rpx solid #e2e8f0;
+  box-shadow: 0 4rpx 12rpx rgba(148,163,184,0.05);
+  
+  /* 新增整齐排版属性 */
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+}
+
+.spec-key {
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 28rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1rpx dashed #cbd5e1;
+  letter-spacing: 0.5rpx;
+}
+
+.spec-value {
+  color: #475569;
+  font-size: 26rpx;
+  line-height: 1.8;
+  
+  /* 完美换行方案 */
+  word-break: break-all;
+  white-space: pre-line;
+  word-wrap: break-word;
+  hyphens: auto;
+  
+  /* 整齐的项目符号 */
+  position: relative;
+  padding-left: 40rpx;
+}
+.spec-value::before {
+  content: "•";
+  color: #94a3b8;
+  position: absolute;
+  left: 20rpx;
+  font-size: 34rpx;
+  line-height: 1;
+}
+
+.empty-tip {
+  text-align: center;
+  color: #999;
+  padding: 100rpx 0;
+}
+.container {
+  padding: 20rpx;
+}
+
+.header {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.picker-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.picker-box {
+  flex: 1;
+  margin: 0 10rpx;
+  border: 1px solid #ccc;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.vs-text {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.comparison-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20rpx;
+  flex-wrap: wrap;
+}
+
+
+.product-card {
+  width: 48%;
+  border: 1px solid #dee2e6;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  background: #fff;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-4rpx);
+}
+
+
+.product-image {
+  width: 100%;
+  height: 200rpx;
+  object-fit: contain;
+  margin-bottom: 10rpx;
+}
+
+.product-title {
+  font-weight: bold;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.catalog {
+  color: #888;
+  margin-bottom: 6rpx;
+}
+
+.price {
+  color: #e64340;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.specs-container {
+  border-top: 1px solid #eee;
+  padding: 20rpx 0;
+  margin-top: 20rpx;
+}
+
+.spec-item {
+  margin: 25rpx 0;
+  padding: 25rpx;
+  background: #ffffff;
+  border-radius: 12rpx;
+  border-left: 6rpx solid #007bff;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.06);
+  break-inside: avoid; /* 防止分页断开 */
+}
+
+.spec-key {
+  color: #2d3436;
+  font-weight: 600;
+  font-size: 28rpx;
+  margin-bottom: 12rpx;
+  letter-spacing: 0.5rpx;
+}
+.spec-value {
+  color: #636e72;
+  font-size: 26rpx;
+  line-height: 1.8;
+  text-align: justify; /* 两端对齐 */
+}
+.spec-value::before {
+  content: "• ";
+  color: #007bff;
+  padding-right: 8rpx;
+}
+.spec-value {
+  hyphens: auto; /* 自动连字符 */
+}
+
+.empty-tip {
+  text-align: center;
+  color: #aaa;
+  font-size: 26rpx;
+  padding: 40rpx 0;
+}

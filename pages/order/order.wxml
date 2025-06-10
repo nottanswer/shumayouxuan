@@ -1,0 +1,22 @@
+<!-- order.wxml -->
+<!--<view class="order-container">-->
+  <scroll-view class="order-list" scroll-y>
+    <block wx:for="{{dinglist}}" wx:key="pid">
+      <view class="order-item">
+        <image src="{{item.pic}}" class="item-image"mode="aspectFill"/>
+        <view class="item-info">
+          <text class="item-title">{{item.pname}}</text>
+          <text class="item-desc">¥{{item.price}}</text>
+          <text class="item-desc">{{item.note}}</text>
+        
+        <button style="width: 180rpx; font-size: 10px;background-color:#ffffff;margin-top: 20px; border:1px solid;border-color: #1b1b1b;border-radius: 20px;margin-left: 240rpx;"
+          
+          data-pid="{{item.pid}}"
+          bindtap="removeFromOrder"
+        >删除订单</button>
+      </view>
+      </view>
+    </block>
+  </scroll-view>
+
+  

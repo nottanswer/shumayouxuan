@@ -1,0 +1,115 @@
+/* pages/searchResult/searchResult.wxss */
+page {
+  background-color: #f7f8fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB',
+    'Microsoft Yahei', sans-serif;
+  color: #333;
+  min-height: 100vh;
+}
+
+.page-container {
+  padding: 20rpx 30rpx;
+}
+
+.search-header {
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 20rpx 0;
+  margin-bottom: 20rpx;
+  text-align: center;
+  color: #555;
+}
+
+.search-header text {
+    word-break: break-all; /* 防止关键词过长导致溢出 */
+}
+
+/* 复用 index.wxss 的产品列表样式 */
+.product-list-container {
+  /* padding: 0 30rpx;  已在 page-container 中设置 */
+}
+.product-item-card {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  margin-bottom: 25rpx;
+  padding: 25rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+.product-image {
+  width: 180rpx; /* 缩小一点图片 */
+  height: 180rpx;
+  border-radius: 12rpx;
+  margin-right: 25rpx;
+  flex-shrink: 0;
+  background-color: #f0f0f0;
+}
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* 从顶部开始排列 */
+}
+.product-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+  margin-bottom: 8rpx;
+}
+.product-price {
+  font-size: 30rpx;
+  color: #fa5151;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+.product-note {
+  font-size: 24rpx;
+  color: #888;
+  white-space: pre-line;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  margin-bottom: 15rpx;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100rpx;
+  text-align: center;
+  color: #999;
+}
+.empty-icon {
+  width: 180rpx;
+  margin-bottom: 30rpx;
+  opacity: 0.7;
+}
+.empty-state text {
+  font-size: 28rpx;
+  margin-bottom: 40rpx;
+  word-break: break-all;
+}
+.back-home-btn {
+  background-color: #007aff;
+  color: white;
+  border-radius: 40rpx;
+  padding: 15rpx 40rpx;
+  font-size: 28rpx;
+  border: none;
+}
+.back-home-btn:active {
+  background-color: #005db3;
+}

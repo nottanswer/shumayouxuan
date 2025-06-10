@@ -1,0 +1,153 @@
+/* index.wxss */
+.container {
+  position: relative;
+  height: 100vh;
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.decor-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(74, 107, 223, 0.1);
+}
+
+.circle-top {
+  width: 400rpx;
+  height: 400rpx;
+  top: -150rpx;
+  right: -150rpx;
+}
+
+.circle-bottom {
+  width: 300rpx;
+  height: 300rpx;
+  bottom: -100rpx;
+  left: -100rpx;
+}
+
+.scrollarea {
+  height: 100%;
+}
+
+.page {
+  padding: 40rpx;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+
+.logo {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 42rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #888;
+}
+
+.form-container {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 50rpx 40rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.05);
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 50rpx;
+}
+
+.input-icon {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  left: 0;
+  top: 16rpx;
+}
+
+.input {
+  height: 70rpx;
+  font-size: 30rpx;
+  padding-left: 60rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.placeholder {
+  color: #bbb;
+}
+
+.input-line {
+  position: absolute;
+  bottom: 0;
+  left: 60rpx;
+  right: 0;
+  height: 2rpx;
+  background: #4a6bdf;
+  transform: scaleX(0);
+  transition: all 0.3s;
+}
+
+.input:focus + .input-line {
+  transform: scaleX(1);
+}
+
+.picker {
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  color: #333;
+  padding-left: 60rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.arrow-icon {
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  right: 0;
+  top: 22rpx;
+}
+
+.register-btn {
+  background: linear-gradient(135deg, #4a6bdf, #6a5acd);
+  color: white;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 45rpx;
+  font-size: 34rpx;
+  margin-top: 60rpx;
+  border: none;
+  box-shadow: 0 10rpx 20rpx rgba(74, 107, 223, 0.3);
+}
+
+.register-btn-hover {
+  opacity: 0.9;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 40rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.login-link {
+  color: #4a6bdf;
+  margin-bottom: 10rpx;
+}

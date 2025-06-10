@@ -1,0 +1,85 @@
+<!-- index.wxml -->
+<navigation-bar title="产品比较" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="container" scroll-y>
+  <view class="header">请选择产品进行比较：</view>
+  
+  <!-- 选择器区域 -->
+  <view class="picker-container">
+    <view class="picker-box">
+      <picker 
+        mode="selector" 
+        range="{{productlist}}" 
+        range-key="pname"
+        data-field="pd1"
+        bindchange="handlePickerChange">
+        <view class="picker">
+          {{pd1 ? pd1.pname : '选择产品1'}}
+        </view>
+      </picker>
+    </view>
+    
+    <view class="vs-text">VS</view>
+    
+    <view class="picker-box">
+      <picker 
+        mode="selector" 
+        range="{{productlist}}" 
+        range-key="pname"
+        data-field="pd2"
+        bindchange="handlePickerChange">
+        <view class="picker">
+          {{pd2 ? pd2.pname : '选择产品2'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 修正后的比较展示区域 -->
+  <view class="comparison-container" wx:if="{{pd1 || pd2}}">
+    <!-- 产品1信息 -->
+    <view class="product-card" wx:if="{{pd1}}">
+      <image class="product-image" src="{{pd1.pic}}" mode="aspectFit" />
+      <view class="product-title">{{pd1.pname}}</view>
+      <view class="price">价格：¥{{pd1.price}}</view>
+      <view class="catalog">{{pd1.note}}</view>
+      <!-- <view class="note">
+          <text>参数信息：</text>
+          <block wx:for="{{pd1.note.split('\n')}}" wx:key="index">
+            <view class="note-line">{{pd1}}</view>
+          </block>
+        </view> -->
+      <!-- <view class="specs-container">
+        <block wx:for="{{splitNotes(pd1.note)}}" wx:key="index">
+          <view class="spec-item">
+            <text class="spec-key">{{item.key}}：</text>
+            <text class="spec-value">{{item.value}}</text>
+          </view>
+        </block>
+      </view> -->
+    </view>
+
+    <!-- 产品2信息 -->
+    <view class="product-card" wx:if="{{pd2}}">
+      <image class="product-image" src="{{pd2.pic}}" mode="aspectFit" />
+      <view class="product-title">{{pd2.pname}}</view>
+      <view class="price">价格：¥{{pd2.price}}</view>
+      <view class="catalog">{{pd2.note}}</view>
+      <!-- <view class="note">
+          <text>参数信息：</text>
+          <block wx:for="{{pd2.note.split('\n')}}" wx:key="index">
+            <view class="note-line">{{pd2}}</view>
+          </block>
+        </view> -->
+       <!-- <view class="specs-container">
+        <block wx:for="{{splitNotes(pd2.note)}}" wx:key="index">
+          <view class="spec-item">
+            <text class="spec-key">{{item.key}}：</text>
+            <text class="spec-value">{{item.value}}</text>
+          </view>
+        </block>
+      </view>  -->
+    </view>
+  </view>
+  
+  <view wx:else class="empty-tip">请从上方选择两个产品进行对比</view>
+</scroll-view>

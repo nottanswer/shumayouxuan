@@ -1,0 +1,7 @@
+<!-- pages/after-sales/after-sales.wxml -->
+<view class="container">
+  <view class="empty">
+    <image src="/images/图标/退货2.png" mode="aspectFit"></image>
+    <text>暂无售后记录</text>
+  </view>
+</view>

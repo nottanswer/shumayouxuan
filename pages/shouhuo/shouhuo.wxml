@@ -1,0 +1,7 @@
+<!-- pages/pending-receipt/pending-receipt.wxml -->
+<view class="container">
+  <view class="empty">
+    <image src="/images/图标/待收货2.png" mode="aspectFit"></image>
+    <text>暂无待收货订单</text>
+  </view>
+</view>

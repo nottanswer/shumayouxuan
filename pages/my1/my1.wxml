@@ -1,0 +1,42 @@
+<!-- pages/my1/my.wxml -->
+<view class="my-container">
+  <!-- 用户信息 -->
+  <view class="user-section">
+    <image class="avatar" src="/images/avatar.png" mode="aspectFill"></image>
+    <view class="user-info">
+      <text class="username">{{userInfo.uname||'微信用户'}}</text>
+    </view>
+  </view>
+
+  <!-- 订单状态 -->
+  <view class="order-section">
+    <view class="section-title">我的订单</view>
+    <view class="order-types">
+      <view class="order-item" wx:for="{{orderTypes}}" wx:key="type" bindtap="navigateTo" data-url="{{item.url}}">
+        <image class="order-icon" src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 常用功能 -->
+  <view class="function-section">
+    <view class="section-title">常用功能</view>
+    <view class="function-grid">
+      <view class="function-item" wx:for="{{functions}}" wx:key="id" bindtap="navigateTo" data-url="{{item.url}}">
+        <image class="function-icon" src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="action-buttons" wx:if="{{!userInfo.uname}}">
+  <button class="login-btn" bindtap="goToIndex">
+    <text>立即登录</text>
+  </button>
+  <!-- 新增后台管理入口 -->
+    <button class="login-btn" bindtap="goToAdminProducts">后台管理</button>
+</view>
+
+
+
+</view>
