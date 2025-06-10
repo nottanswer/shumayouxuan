@@ -1,0 +1,123 @@
+<!-- <text>pages/admin/products/products.wxml</text> -->
+<!-- pages/admin/products/products.wxml -->
+<view class="container">
+    <!-- 页面头部，包含标题和添加按钮 -->
+    <view class="admin-header-fixed">
+      <view class="header">
+          <text class="title">产品后台管理</text>
+          <!-- <button type="primary" size="mini" bindtap="showAddForm" disabled="{{isLoading && isFormVisible}}">添加新产品</button> -->
+      </view>
+      
+      <!-- 添加按钮单独一行 -->
+      <view class="add-button-container">
+      <button type="primary" class="add-product-btn" bindtap="showAddForm" disabled="{{isLoading && isFormVisible}}">添加新产品</button>
+      </view>
+
+      <!-- --- 搜索框区域 --- -->
+      <view class="search-bar-admin">
+          <icon type="search" size="16" color="#999" class="search-icon-admin"/>
+          <input
+              class="search-input-admin"
+              placeholder="搜索产品名称"
+              value="{{searchKeyword}}"
+              bindinput="onSearchInput"
+              confirm-type="search"
+              bindconfirm="filterProducts" 
+          /><!-- 点击键盘搜索按钮也执行筛选 -->
+          <icon wx:if="{{searchKeyword.length > 0}}" type="clear" size="16" color="#ccc" class="clear-icon-admin" bindtap="clearSearch"/>
+      </view>
+    </view>
+      <!-- --- 结束：搜索框区域 --- -->
+
+
+    <!-- 加载提示，仅在加载中且表单未显示时出现 -->
+    <scroll-view scroll-y class="admin-content-scrollable">
+    <view wx:if="{{isLoading && !isFormVisible}}" class="loading-tip">
+        <text>加载中...</text>
+    </view>
+    <!-- 错误提示，仅在有错误信息且表单未显示时出现 -->
+    <view wx:if="{{errorMsg && !isFormVisible}}" class="error-tip">
+        <text>{{errorMsg}}</text>
+    </view>
+
+    <!-- 产品列表区域，仅在表单未显示且产品列表有数据时展示 -->
+    <view wx:if="{{!isFormVisible && productList.length > 0}}" class="product-list">
+        <view wx:for="{{filteredProductList}}" wx:key="id" class="product-item">
+            <!-- 产品信息区域 -->
+            <view class="product-info">
+              <image wx:if="{{item.image_url}}"
+       src="{{ (item.image_url && item.image_url.startsWith('http')) ? item.image_url : (imageBaseUrlForWxml + item.image_url) }}"
+       data-src="{{ (item.image_url && item.image_url.startsWith('http')) ? item.image_url : (imageBaseUrlForWxml + item.image_url) }}"
+       class="product-image"
+       mode="aspectFit"
+       lazy-load="true"
+       binderror="onImageLoadError" data-index="{{index}}" />
+                <image wx:else class="product-image placeholder-image" src="/images/placeholder.png" mode="aspectFit"></image> 
+
+                <!-- 产品详细信息文本 -->
+                <view class="product-details">
+                    <text class="product-name">{{item.name}} (ID: {{item.id}})</text>
+                    <text>价格: ¥{{item.price}}</text>
+                    <text>库存: {{item.stock !== null && item.stock !== undefined ? item.stock : 0}}</text>
+                    <text>分类: {{item.category || '未分类'}}</text>
+                    <text class="description-preview" wx:if="{{item.note}}">描述: {{item.description.length > 30 ? item.description.substring(0, 30) + '...' : item.description}}</text>
+                </view>
+            </view>
+            <!-- 产品操作按钮区域 -->
+            <view class="product-actions">
+                <button size="mini" data-product="{{item}}" bindtap="showEditForm" disabled="{{isLoading}}">编辑</button>
+                <button size="mini" type="warn" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="deleteProduct" disabled="{{isLoading}}">删除</button>
+            </view>
+        </view>
+    </view>
+
+    <!-- 修改为空提示的判断条件 -->
+    <view wx:if="{{!isFormVisible && filteredProductList.length === 0 && !isLoading && !errorMsg}}" class="empty-tip">
+        <text wx:if="{{searchKeyword}}">未找到与 "{{searchKeyword}}"相关的产品。</text>
+        <text wx:else>暂无产品数据，请点击 "添加新产品"。</text>
+    </view>
+  </scroll-view>
+    <!-- 添加/编辑产品表单的模态框 -->
+    <view wx:if="{{isFormVisible}}" class="form-modal">
+        <scroll-view scroll-y class="form-scroll-view"> <!-- 允许表单内容过多时滚动 -->
+            <view class="form-container">
+                <text class="form-title">{{formTitle}}</text>
+                <!-- 产品名称输入 -->
+                <view class="form-item">
+                    <text class="form-label">名称*:</text>
+                    <input class="form-input" placeholder="请输入产品名称" data-field="name" value="{{productForm.name}}" bindinput="onFormInput" maxlength="100"/>
+                </view>
+                <!-- 产品价格输入 -->
+                <view class="form-item">
+                    <text class="form-label">价格*:</text>
+                    <input class="form-input" type="digit" placeholder="请输入产品价格 (数字)" data-field="price" value="{{productForm.price}}" bindinput="onFormInput"/>
+                </view>
+                <!-- 产品库存输入 -->
+                <view class="form-item">
+                    <text class="form-label">库存:</text>
+                    <input class="form-input" type="number" placeholder="请输入库存数量 (数字)" data-field="stock" value="{{productForm.stock}}" bindinput="onFormInput"/>
+                </view>
+                <!-- 产品图片URL输入 -->
+                <view class="form-item">
+                    <text class="form-label">图片URL/名:</text>
+                    <input class="form-input" placeholder="如: iphone.png 或 http://..." data-field="image_url" value="{{productForm.image_url}}" bindinput="onFormInput"/>
+                </view>
+                <!-- 产品分类输入 -->
+                <view class="form-item">
+                    <text class="form-label">分类:</text>
+                    <input class="form-input" placeholder="如: 手机, 电脑, 耳机" data-field="category" value="{{productForm.category}}" bindinput="onFormInput" maxlength="50"/>
+                </view>
+                <!-- 产品描述输入 -->
+                <view class="form-item">
+                    <text class="form-label">描述:</text>
+                    <textarea class="form-textarea" placeholder="请输入产品详细描述" data-field="description" value="{{productForm.description}}" bindinput="onFormInput" auto-height maxlength="1000"/>
+                </view>
+                <!-- 表单操作按钮 -->
+                <view class="form-actions">
+                    <button type="default" bindtap="hideForm" disabled="{{isLoading}}">取消</button>
+                    <button type="primary" bindtap="submitForm" loading="{{isLoading}}">提交</button>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
